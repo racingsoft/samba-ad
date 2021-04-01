@@ -2,8 +2,13 @@
 
 set -e
 
-setup_config_files(){
+setup_hosts(){
+    
     # /etc/hosts
+}
+
+setup_samba(){
+
     # /etc/samba/smb.conf
 }
 
@@ -20,4 +25,9 @@ domain_provision(){
 
 setup_resolv_conf(){
     # /etc/resolv.conf
+}
+
+setup_supervisor(){
+    # /etc/supervisord.conf
+    supervisord -c /etc/supervisord.conf
 }
