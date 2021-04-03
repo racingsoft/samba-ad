@@ -14,7 +14,7 @@ Samba active directory domain controller in Docker container
 |-|-|-|
 | **AD_DOMAIN** | NetBIOS Domain | True|
 | **AD_REALM** | DNS Domain | True |
-| **AD_ADMIN_PASSWORD** | AD Administrator password | False |
+| **AD_ADMIN_PASSWORD** | AD Administrator password | False (Generated if empty, see container logs) |
 
 ### Command Line
 
