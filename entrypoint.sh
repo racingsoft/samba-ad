@@ -6,7 +6,7 @@ AD_DOMAIN=${AD_DOMAIN:-racingsoft}
 AD_REALM=${AD_REALM:-racingsoft.home}
 
 SAMBA_DOMAIN="$(echo $AD_DOMAIN | awk '{print toupper($0)}')"
-SAMBA_REALM="$(echo $AD_REALM | awk '{print toupper($0)}')"
+SAMBA_REALM="$(echo $AD_REALM | awk '{print tolower($0)}')"
 SAMBA_HOSTNAME="$(hostname -s | awk '{print toupper($0)}')"
 
 PROVISION_DOMAIN="$(echo $AD_DOMAIN | awk '{print toupper($0)}')"
@@ -58,7 +58,7 @@ config(){
 
 start(){
     config
-    supervisord -c /etc/supervisord.conf
+    supervisord -n -c /etc/supervisord.conf
 }
 
 case "$1" in
