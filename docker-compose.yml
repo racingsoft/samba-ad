@@ -1,0 +1,40 @@
+version: "3"
+services:
+  samba-ad:
+    build: ./
+    image: samba-ad
+    hostname: ad-server.racingsoft.home
+    environment:
+      - AD_DOMAIN=RACINGSOFT
+      - AD_REALM=RACINGSOFT.HOME
+      - AD_ADMIN_PASSWORD="SecretPassword!"
+    volumes:
+      - samba_data:/var/lib/samba
+    ports:
+      - "53:53"
+      - "53:53/udp"
+      - "88:88"
+      - "88:88/udp"
+      - "123:123/udp"
+      - "135:135"
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139"
+      - "389:389"
+      - "389:389/udp"
+      - "445:445"
+      - "464:464"
+      - "464:464/udp"
+      - "636:636"
+      - "3268:3268"
+      - "3269:3269"
+      - "49152-65535:49152-65535"
+    dns: 
+      - "127.0.0.1"
+    dns_search:
+      - "racingsoft.home"
+    cap_add:
+      - SYS_RESOURCE
+      - SYS_ADMIN
+volumes:
+  samba_data:
